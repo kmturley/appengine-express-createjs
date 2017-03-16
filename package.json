@@ -1,0 +1,29 @@
+{
+  "name": "appengine-express-createjs",
+  "version": "1.0.0",
+  "description": "AppEngine running NodeJS, ExpressJS framework with contentblocks and CreateJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmturley/appengine-express-createjs.git"
+  },
+  "keywords": [
+    "appengine",
+    "node",
+    "express",
+    "contentblocks",
+    "createjs"
+  ],
+  "author": "kmturley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kmturley/appengine-express-createjs/issues"
+  },
+  "homepage": "https://github.com/kmturley/appengine-express-createjs#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
