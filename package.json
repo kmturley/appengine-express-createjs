@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/kmturley/appengine-express-createjs#readme",
   "dependencies": {
+    "@google-cloud/datastore": "^0.7.1",
+    "contentblocks": "^0.1.7",
     "express": "^4.15.2"
   }
 }

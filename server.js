@@ -1,18 +1,37 @@
 const express = require('express');
 const app = express();
-const path    = require("path");
+const path = require("path");
+const datastore = require('@google-cloud/datastore');
+const datastoreClient = datastore({
+    projectId: 'dauntless-karma-161716',
+    keyFilename: '/path/to/keyfile.json'
+});
 const contentBlocks = require('contentblocks')({
     app: app,
-    host: 'dauntless-karma-161716.appspot.com',
-    port: 80,
-    pathFind: '/v1/nest/find?q={"@subject":"[id]"}',
-    pathPost: '/v1/nest',
-    pathPut: '/v1/nest/[id]',
-    pathDelete: '/v1/nest/[id]'
+    host: 'localhost',
+    port: 8080,
+    pathFind: '/v1/api/find?q={"@subject":"[id]"}',
+    pathPost: '/v1/api',
+    pathPut: '/v1/api/[id]',
+    pathDelete: '/v1/api/[id]'
 });
+
+var blogPostKey = datastoreClient.key('BlogPost');
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/src/index.html'));
+});
+
+app.post('/cms', (req, res) => {
+    datastoreClient.save({
+        key: blogPostKey,
+        data: {
+            name: 'test',
+            timestamp: new Date()
+        }
+    }, function(err) {
+        console.log('done', err);
+    });
 });
 
 app.use(express.static('src/static'))
