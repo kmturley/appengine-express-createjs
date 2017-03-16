@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/src/index.html'));
 });
 
-app.post('/cms', (req, res) => {
+app.post('/api', (req, res) => {
     datastoreClient.save({
         key: blogPostKey,
         data: {
